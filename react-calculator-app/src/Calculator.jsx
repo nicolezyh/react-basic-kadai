@@ -16,9 +16,13 @@ export function Calculator(){
   const handleClick = (btn) => {
     if (btn === 'C') setDisplay('');
     else if (btn === '=') {
-      const result = calculate(display);
-      setDisplay(result);
-    } else setDisplay(prev => prev + btn);
+      try {
+        const result = calculate(display);
+        setDisplay(result);
+      } catch (error) {
+        setDisplay('エラー');
+      }
+    }else setDisplay(prev => prev + btn);
 
   }
 
